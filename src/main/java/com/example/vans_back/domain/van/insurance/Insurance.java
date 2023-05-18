@@ -1,4 +1,4 @@
-package com.example.vans_back.domain;
+package com.example.vans_back.domain.van.insurance;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -9,16 +9,21 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "city")
-public class City {
+@Table(name = "insurance")
+public class Insurance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Size(max = 50)
+    @Size(max = 255)
     @NotNull
-    @Column(name = "name", nullable = false, length = 50)
-    private String name;
+    @Column(name = "provider", nullable = false)
+    private String provider;
+
+    @Size(max = 255)
+    @NotNull
+    @Column(name = "phone_number", nullable = false)
+    private String phoneNumber;
 
 }

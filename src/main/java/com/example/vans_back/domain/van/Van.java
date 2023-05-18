@@ -1,7 +1,7 @@
 package com.example.vans_back.domain.van;
 
-import com.example.vans_back.domain.City;
-import com.example.vans_back.domain.Insurance;
+import com.example.vans_back.domain.van.city.City;
+import com.example.vans_back.domain.van.insurance.Insurance;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

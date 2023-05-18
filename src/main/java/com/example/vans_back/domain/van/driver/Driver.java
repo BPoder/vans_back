@@ -1,4 +1,4 @@
-package com.example.vans_back.domain;
+package com.example.vans_back.domain.van.driver;
 
 import com.example.vans_back.domain.user.User;
 import com.example.vans_back.domain.van.Van;
