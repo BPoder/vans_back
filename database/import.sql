@@ -12,10 +12,10 @@ INSERT INTO public."user" (id, role_id, username, password, status) VALUES (DEFA
 INSERT INTO public.insurance (id, provider, phone_number) VALUES (DEFAULT, 'IisiMiisi', '12345');
 INSERT INTO public.insurance (id, provider, phone_number) VALUES (DEFAULT, 'LiisiBriisi', '54321');
 
-INSERT INTO public.van (id, model, plate_number, insurance_id, city_id, next_inspection) VALUES (DEFAULT, 'Renault Master', '123ABC', 1, 1, '2024-05-18');
-INSERT INTO public.van (id, model, plate_number, insurance_id, city_id, next_inspection) VALUES (DEFAULT, 'Renault Master', '321BCA', 2, 2, '2024-05-18');
-INSERT INTO public.van (id, model, plate_number, insurance_id, city_id, next_inspection) VALUES (DEFAULT, 'Citroen Jumper', '456XYZ', 1, 1, '2023-12-24');
-INSERT INTO public.van (id, model, plate_number, insurance_id, city_id, next_inspection) VALUES (DEFAULT, 'Citroen Jumper', '654ZXY', 2, 2, '2023-12-24');
+INSERT INTO public.van (id, model, plate_number, insurance_id, city_id, next_inspection, status) VALUES (DEFAULT, 'Renault Master', '123ABC', 1, 1, '2024-05-18', 'A');
+INSERT INTO public.van (id, model, plate_number, insurance_id, city_id, next_inspection, status) VALUES (DEFAULT, 'Renault Master', '321BCA', 2, 2, '2024-05-18', 'A');
+INSERT INTO public.van (id, model, plate_number, insurance_id, city_id, next_inspection, status) VALUES (DEFAULT, 'Citroen Jumper', '456XYZ', 1, 1, '2023-12-24', 'A');
+INSERT INTO public.van (id, model, plate_number, insurance_id, city_id, next_inspection, status) VALUES (DEFAULT, 'Citroen Jumper', '654ZXY', 2, 2, '2023-12-24', 'A');
 
 INSERT INTO public.driver (id, user_id, name, license, phone_number, status, van_id) VALUES (DEFAULT, 3, 'Mati Une', 'ET123456', 56789012, 'A', 1);
 INSERT INTO public.driver (id, user_id, name, license, phone_number, status, van_id) VALUES (DEFAULT, 4, 'Anti Tiib', 'ET654321', 56123456, 'A', 2);

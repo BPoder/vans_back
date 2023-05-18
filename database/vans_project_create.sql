@@ -86,6 +86,7 @@ CREATE TABLE van (
     insurance_id int  NOT NULL,
     city_id int  NOT NULL,
     next_inspection date  NOT NULL,
+    status char(1)  NOT NULL,
     CONSTRAINT van_pk PRIMARY KEY (id)
 );
 
