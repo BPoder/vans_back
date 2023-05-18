@@ -1,5 +1,6 @@
 package com.example.vans_back.business.login;
 
+import com.example.vans_back.domain.user.User;
 import com.example.vans_back.domain.user.UserService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ public class LoginService {
     private UserService userService;
 
     public void login(String username, String password) {
-        userService.findUserBy(username, password);
+        User user = userService.findActiveUserBy(username, password);
+
     }
 }

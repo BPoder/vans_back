@@ -1,8 +1,8 @@
 package com.example.vans_back.business.login;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,9 +13,8 @@ public class LoginController {
     private LoginService loginService;
 
     @GetMapping("/login")
+    @Operation(summary = "Sisse logimine. Tagastab userId ja roleName")
     public void login(@RequestParam String username, @RequestParam String password) {
         loginService.login(username, password);
     }
-
-
 }
