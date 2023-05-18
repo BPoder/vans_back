@@ -36,7 +36,7 @@ CREATE TABLE maintenance (
     description varchar(1000)  NOT NULL,
     total_mileage int  NOT NULL,
     date date  NOT NULL,
-    attachment bytea  NOT NULL,
+    attachment bytea  NULL,
     status char(1)  NOT NULL,
     CONSTRAINT maintenance_pk PRIMARY KEY (id)
 );
