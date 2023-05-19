@@ -13,9 +13,9 @@ public class UserService {
 
     public User findActiveUserBy(String username, String password) {
         Optional<User> userOptional = userRepository.findUserBy(username, password, Status.ACTIVE.getLetter());
-        if (userOptional.isEmpty()) {
-//            throw new
-        }
+//        if (userOptional.isEmpty()) {
+//        todo: throw new error "vale kasutajanimi või parool"
+//        }
         User user = userOptional.get();
         return user;
     }

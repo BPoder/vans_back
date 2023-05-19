@@ -14,7 +14,8 @@ public class LoginController {
 
     @GetMapping("/login")
     @Operation(summary = "Sisse logimine. Tagastab userId ja roleName")
-    public void login(@RequestParam String username, @RequestParam String password) {
-        loginService.login(username, password);
+    public LoginResponse login(@RequestParam String username, @RequestParam String password) {
+        LoginResponse loginResponse = loginService.login(username, password);
+        return loginResponse;
     }
 }
