@@ -9,4 +9,8 @@ public interface DriverRepository extends JpaRepository<Driver, Integer> {
     @Query("select d from Driver d where d.id = ?1")
     Optional<Driver> findDriverBy(Integer driverId);
 
+
+
+
+
 }
