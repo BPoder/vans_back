@@ -15,7 +15,7 @@ CREATE TABLE driver (
     user_id int  NOT NULL,
     name varchar(255)  NOT NULL,
     license varchar(11)  NOT NULL,
-    phone_number int  NOT NULL,
+    phone_number varchar(255)  NOT NULL,
     status char(1)  NOT NULL,
     van_id int  NULL,
     CONSTRAINT driver_pk PRIMARY KEY (id)

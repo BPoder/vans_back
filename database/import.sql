@@ -17,8 +17,8 @@ INSERT INTO public.van (id, model, plate_number, insurance_id, city_id, next_ins
 INSERT INTO public.van (id, model, plate_number, insurance_id, city_id, next_inspection, status) VALUES (DEFAULT, 'Citroen Jumper', '456XYZ', 1, 1, '2023-12-24', 'A');
 INSERT INTO public.van (id, model, plate_number, insurance_id, city_id, next_inspection, status) VALUES (DEFAULT, 'Citroen Jumper', '654ZXY', 2, 2, '2023-12-24', 'A');
 
-INSERT INTO public.driver (id, user_id, name, license, phone_number, status, van_id) VALUES (DEFAULT, 3, 'Mati Une', 'ET123456', 56789012, 'A', 1);
-INSERT INTO public.driver (id, user_id, name, license, phone_number, status, van_id) VALUES (DEFAULT, 4, 'Anti Tiib', 'ET654321', 56123456, 'A', 2);
+INSERT INTO public.driver (id, user_id, name, license, phone_number, status, van_id) VALUES (DEFAULT, 3, 'Mati Une', 'ET123456', '56789012', 'A', 1);
+INSERT INTO public.driver (id, user_id, name, license, phone_number, status, van_id) VALUES (DEFAULT, 4, 'Anti Tiib', 'ET654321', '56123456', 'A', 2);
 
 INSERT INTO public.mileage (id, van_id, date, km) VALUES (DEFAULT, 1, '2023-05-15', 50);
 INSERT INTO public.mileage (id, van_id, date, km) VALUES (DEFAULT, 1, '2023-05-16', 100);

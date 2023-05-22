@@ -33,9 +33,10 @@ public class Driver {
     @Column(name = "license", nullable = false, length = 11)
     private String license;
 
+    @Size(max = 255)
     @NotNull
     @Column(name = "phone_number", nullable = false)
-    private Integer phoneNumber;
+    private String phoneNumber;
 
     @Size(max = 1)
     @NotNull
@@ -45,5 +46,7 @@ public class Driver {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "van_id")
     private Van van;
+
+
 
 }

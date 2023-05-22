@@ -1,6 +1,7 @@
 package com.example.vans_back.domain.user;
 
 import com.example.vans_back.business.Status;
+import com.example.vans_back.validation.ValidationService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ public class UserService {
 //        if (userOptional.isEmpty()) {
 //        todo: throw new error "vale kasutajanimi või parool"
 //        }
+        ValidationService.validateCorrectLoginCredentials(userOptional);
         User user = userOptional.get();
         return user;
     }
