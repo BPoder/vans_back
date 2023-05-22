@@ -28,6 +28,4 @@ public class LoginService {
         loginResponse.setDriverId(driverId);
         return loginResponse;
     }
-
-
 }

@@ -3,8 +3,6 @@ package com.example.vans_back.domain.van.driver;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 public class DriverService {
 
@@ -17,11 +15,11 @@ public class DriverService {
 //    }
 
     public Integer getDriverIdBy(Integer userId) {
-        Driver driver = driverRepository.findDriverBy(userId).get();
+        Driver driver = driverRepository.findDriverByUserId(userId).get();
         return driver.getId();
     }
 
-    public void getVanBasicInfo(Integer driverId) {
-
+    public Driver getDriverBy(Integer driverId) {
+       return driverRepository.findDriverByDriverId(driverId).get();
     }
 }
