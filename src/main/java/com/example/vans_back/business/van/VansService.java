@@ -1,5 +1,8 @@
 package com.example.vans_back.business.van;
 
+import com.example.vans_back.business.van.dto.VanBasicInfo;
+import com.example.vans_back.domain.van.driver.Driver;
+import com.example.vans_back.domain.van.driver.DriverMapper;
 import com.example.vans_back.domain.van.driver.DriverService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -11,11 +14,11 @@ public class VansService {
     private DriverService driverService;
 
     @Resource
-    private VanMapper vanMapper;
+    private DriverMapper driverMapper;
 
-    public void getUserVanInfo(Integer driverId) {
-        driverService.getVanBasicInfo(driverId);
-        //getDriverVanBy(driverId)?
-
+    public VanBasicInfo getUserVanInfo(Integer driverId) {
+        Driver driver = driverService.getDriverBy(driverId);
+        VanBasicInfo vanBasicInfo = driverMapper.toVanBasicInfo(driver);
+        return vanBasicInfo;
     }
 }
