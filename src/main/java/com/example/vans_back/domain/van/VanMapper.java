@@ -1,5 +1,7 @@
 package com.example.vans_back.domain.van;
 
+import com.example.vans_back.business.van.dto.VanAllInfo;
+import com.example.vans_back.business.van.dto.VanRequest;
 import org.mapstruct.*;
 
 import java.util.List;
@@ -12,13 +14,16 @@ public interface VanMapper {
     @Mapping(source = "model", target = "model")
     @Mapping(source = "nextInspection", target = "nextInspection")
     @Mapping(source = "status", target = "status")
-    @Mapping(source = "city.id", target = "cityId")
     @Mapping(source = "city.name", target = "cityName")
-    @Mapping(source = "insurance.id", target = "insuranceId")
     @Mapping(source = "insurance.provider", target = "insuranceProvider")
     @Mapping(source = "insurance.phoneNumber", target = "insurancePhoneNumber")
     VanAllInfo toVanAllInfo(Van van);
 
-
     List<VanAllInfo> toVanAllInfos(List<Van> vans);
+
+    @Mapping(source = "plateNumber", target = "plateNumber")
+    @Mapping(constant = "A", target = "status")
+    @Mapping(source = "nextInspection", target = "nextInspection")
+    @Mapping(source = "model", target = "model")
+    Van toVan(VanRequest vanRequest);
 }
