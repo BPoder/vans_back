@@ -12,4 +12,12 @@ public class InsuranceService {
     public void addInsurance(Insurance insurance) {
         insuranceRepository.save(insurance);
     }
+
+    public Insurance findInsuranceBy(String insuranceProvider) {
+        return insuranceRepository.findInsuranceBy(insuranceProvider);
+    }
+
+    public boolean insuranceExistsByProvider(String insuranceProvider) {
+        return insuranceRepository.insuranceExistsByProvider(insuranceProvider);
+    }
 }

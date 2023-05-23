@@ -22,4 +22,8 @@ public class DriverService {
     public Driver getDriverBy(Integer driverId) {
        return driverRepository.findDriverByDriverId(driverId).get();
     }
+
+    public void addDriver(Driver driver) {
+        driverRepository.save(driver);
+    }
 }

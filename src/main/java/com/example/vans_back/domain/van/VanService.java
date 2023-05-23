@@ -17,5 +17,7 @@ public class VanService {
         return vans;
     }
 
-    public void addVan(Van van) {vanRepository.save(van);}
+    public void addVan(Van van) {
+        vanRepository.save(van);
+    }
 }

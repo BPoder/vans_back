@@ -63,16 +63,25 @@ public class VansService {
         City city = cityService.findCityBy(vanRequest.getCityId());
         van.setCity(city);
 
-        Insurance insurance = insuranceMapper.toInsurance(vanRequest);
-        insuranceService.addInsurance(insurance);
+        Insurance insurance;
+
+        boolean insuranceProviderExists = insuranceService.insuranceExistsByProvider(vanRequest.getInsuranceProvider());
+        if (insuranceProviderExists) {
+            insurance = insuranceService.findInsuranceBy(vanRequest.getInsuranceProvider());
+        } else {
+            insurance = insuranceMapper.toInsurance(vanRequest);
+            insuranceService.addInsurance(insurance);
+        }
+
         van.setInsurance(insurance);
 
         vanService.addVan(van);
 
         Integer driverId = vanRequest.getDriverId();
-
-        // todo: juhul kui driverId ei ole 0, siis otsi driverId abil üles 'driver' objekt (tabelist driver rida)
-        //  nüüd setteriga pane driver.setVan(van) kaubik külge.
-        //  et driver reas salvestada see muudatus, tuleb salvestada 'driver' objekt andmebaasi (driverService->driverRepository)
+        if (driverId != 0) {
+            Driver driver = driverService.getDriverBy(driverId);
+            driver.setVan(van);
+            driverService.addDriver(driver);
+        }
     }
 }
