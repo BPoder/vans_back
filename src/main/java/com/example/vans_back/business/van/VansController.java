@@ -46,4 +46,10 @@ public class VansController {
         vansService.addVan(vanRequest);
     }
 
+    @DeleteMapping
+    @Operation(summary = "Kustutab tabelis van rea (deaktiveerib).",
+    description = "Juhi tabelis muudab vanId 'null'-iks.")
+    public void deleteVan(@RequestParam Integer vanId) {
+        vansService.deleteVan(vanId);
+    }
 }

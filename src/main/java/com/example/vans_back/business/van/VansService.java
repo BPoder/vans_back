@@ -84,4 +84,18 @@ public class VansService {
             driverService.addDriver(driver);
         }
     }
+
+    public void deleteVan(Integer vanId) {
+        vanService.deactivateVan(vanId);
+
+        List<Driver> drivers = driverService.findDriversBy(vanId);
+        for (Driver driver : drivers) {
+            driver.setVan(null);
+        }
+        driverService.saveAllDrivers(drivers);
+
+        // todo: driverService -> driverRepository findDriversBy(vanId) ('drivers')
+        //  update (for tsükkel) all 'drivers' van objects to null
+        //  driverService -> driverRepository saveAllDrivers('drivers')
+    }
 }
