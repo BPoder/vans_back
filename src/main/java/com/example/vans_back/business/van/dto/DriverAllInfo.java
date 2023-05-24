@@ -1,5 +1,6 @@
-package com.example.vans_back.domain.van.driver;
+package com.example.vans_back.business.van.dto;
 
+import com.example.vans_back.domain.van.driver.Driver;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

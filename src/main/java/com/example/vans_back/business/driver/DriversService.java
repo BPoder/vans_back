@@ -1,7 +1,7 @@
 package com.example.vans_back.business.driver;
 
 import com.example.vans_back.domain.van.driver.Driver;
-import com.example.vans_back.domain.van.driver.DriverAllInfo;
+import com.example.vans_back.business.van.dto.DriverAllInfo;
 import com.example.vans_back.domain.van.driver.DriverMapper;
 import com.example.vans_back.domain.van.driver.DriverService;
 import jakarta.annotation.Resource;

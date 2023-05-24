@@ -1,7 +1,7 @@
 package com.example.vans_back.domain.van.driver;
 
+import com.example.vans_back.business.van.dto.DriverAllInfo;
 import com.example.vans_back.business.van.dto.VanBasicInfo;
-import com.example.vans_back.domain.van.Van;
 import org.mapstruct.*;
 
 import java.util.List;
