@@ -32,4 +32,9 @@ public class DriverService {
     public void saveAllDrivers(List<Driver> drivers) {
         driverRepository.saveAll(drivers);
     }
+
+    public List<Driver> getDriversBy(Integer cityId, Integer driverId) {
+        List<Driver> drivers = driverRepository.findDriversBy(cityId, driverId);
+        return drivers;
+    }
 }
