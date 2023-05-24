@@ -10,10 +10,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginService {
 
-
     @Resource
     private UserService userService;
-
 
     @Resource
     private DriverService driverService;
@@ -24,8 +22,10 @@ public class LoginService {
     public LoginResponse login(String username, String password) {
         User user = userService.findActiveUserBy(username, password);
         LoginResponse loginResponse = userMapper.toLoginResponse(user);
-        Integer driverId = driverService.getDriverIdBy(user.getId());
-        loginResponse.setDriverId(driverId);
+        if (loginResponse.getRoleName().equals("driver")) {
+            Integer driverId = driverService.getDriverIdBy(user.getId());
+            loginResponse.setDriverId(driverId);
+        }
         return loginResponse;
     }
 }
