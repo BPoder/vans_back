@@ -28,7 +28,7 @@ public class VanService {
     }
 
     public List<Van> getAllVans() {
-        List<Van> vans = vanRepository.findAll();
+        List<Van> vans = vanRepository.findVansBy(Status.ACTIVE.getLetter());
         return vans;
     }
 }
