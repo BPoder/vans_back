@@ -1,6 +1,7 @@
 package com.example.vans_back.domain.van.driver;
 
-import com.example.vans_back.business.van.dto.DriverAllInfo;
+import com.example.vans_back.business.driver.dto.DriverRequest;
+import com.example.vans_back.business.driver.dto.DriverAllInfo;
 import com.example.vans_back.business.van.dto.VanBasicInfo;
 import org.mapstruct.*;
 
@@ -22,5 +23,17 @@ public interface DriverMapper {
     @Mapping(source = "user.password", target = "userPassword")
     @Mapping(source = "van.city.name", target = "cityName")
     DriverAllInfo toDriverAllInfo(Driver driver);
+
     List<DriverAllInfo> toDriverAllInfos(List<Driver> drivers);
+
+
+
+    @Mapping(source = "driverName", target = "name")
+    @Mapping(source = "driversLicense", target = "license")
+    @Mapping(source = "driversPhoneNumber", target = "phoneNumber")
+    @Mapping(constant = "A", target = "status")
+    @Mapping(ignore = true, target = "van")
+    Driver toDriver(DriverRequest driverRequest);
+
+
 }

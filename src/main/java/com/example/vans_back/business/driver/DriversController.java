@@ -1,6 +1,7 @@
 package com.example.vans_back.business.driver;
 
-import com.example.vans_back.business.van.dto.DriverAllInfo;
+import com.example.vans_back.business.driver.dto.DriverAllInfo;
+import com.example.vans_back.business.driver.dto.DriverRequest;
 import com.example.vans_back.infrastructure.error.ApiError;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -29,9 +30,11 @@ public class DriversController {
 
     @PostMapping
     @Operation(summary = "Lisab uue juhi info driver tabelisse ning loob kasutaja ja parooli.",
-    description = "Võimalus muuta roleName admin'iks.")
+            description = "Võimalus muuta roleName admin'iks.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
             @ApiResponse(responseCode = "403", description = "Sellise kasutajanimega juht on juba süsteemis olemas", content = @Content(schema = @Schema(implementation = ApiError.class)))})
-    public void addDriver (@RequestBody )
+    public void addDriver(@RequestBody DriverRequest driverRequest) {
+        driversService.addDriver(driverRequest);
+    }
 }

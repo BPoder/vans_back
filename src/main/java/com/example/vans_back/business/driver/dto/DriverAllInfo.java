@@ -1,4 +1,4 @@
-package com.example.vans_back.business.van.dto;
+package com.example.vans_back.business.driver.dto;
 
 import com.example.vans_back.domain.van.driver.Driver;
 import lombok.AllArgsConstructor;
