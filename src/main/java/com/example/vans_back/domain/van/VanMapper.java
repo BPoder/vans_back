@@ -26,4 +26,12 @@ public interface VanMapper {
     @Mapping(source = "nextInspection", target = "nextInspection")
     @Mapping(source = "model", target = "model")
     Van toVan(VanRequest vanRequest);
+
+    @Mapping(source="id", target = "vanId")
+    @Mapping(source="model", target = "vanModel")
+    @Mapping(source="plateNumber", target = "vanPlateNumber")
+    List<VanDto> toVanDto(List<Van> van);
+
+    List<VanDto> toVanDtos(List<Van> vans);
+
 }

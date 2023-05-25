@@ -3,6 +3,7 @@ package com.example.vans_back.business.van;
 import com.example.vans_back.business.van.dto.VanBasicInfo;
 import com.example.vans_back.business.van.dto.VanAllInfo;
 import com.example.vans_back.business.van.dto.VanRequest;
+import com.example.vans_back.domain.van.VanDto;
 import com.example.vans_back.infrastructure.error.ApiError;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -20,6 +21,15 @@ public class VansController {
 
     @Resource
     private VansService vansService;
+
+    @GetMapping("all-vans")
+    @Operation(summary = "Leiab süsteemist(van tabelist) kõik kaubikud",
+            description = "Tagastab info koos vanId ja licencePlateNumberiga.")
+    public List<VanDto> getAllVans(){
+        List<VanDto> vanDtos = vansService.getAllVans();
+        return vanDtos;
+
+    }
 
     @GetMapping("/basic-info")
     @Operation(summary = "Tagastab driverId kaudu kaubiku reg nr ja kindlustuse info.")
@@ -48,7 +58,7 @@ public class VansController {
 
     @DeleteMapping
     @Operation(summary = "Kustutab tabelis van rea (deaktiveerib).",
-    description = "Juhi tabelis muudab vanId 'null'-iks.")
+            description = "Juhi tabelis muudab vanId 'null'-iks.")
     public void deleteVan(@RequestParam Integer vanId) {
         vansService.deleteVan(vanId);
     }
