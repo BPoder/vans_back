@@ -3,6 +3,7 @@ package com.example.vans_back.business.van;
 import com.example.vans_back.business.van.dto.VanBasicInfo;
 import com.example.vans_back.business.van.dto.VanAllInfo;
 import com.example.vans_back.business.van.dto.VanRequest;
+import com.example.vans_back.domain.van.VanDto;
 import com.example.vans_back.infrastructure.error.ApiError;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -20,6 +21,14 @@ public class VansController {
 
     @Resource
     private VansService vansService;
+
+    @GetMapping("/all-vans")
+    @Operation(summary = "Leiab süsteemist (vans tabelist) kõik vanid",
+            description = "Tagastab info koos vanId, model ja plateNumber'ga")
+    public List<VanDto> getAllVans() {
+        List<VanDto> vanDtos = vansService.getAllVans();
+        return vanDtos;
+    }
 
     @GetMapping("/basic-info")
     @Operation(summary = "Tagastab driverId kaudu kaubiku reg nr ja kindlustuse info.")

@@ -13,7 +13,7 @@ public class CitiesController {
     @Resource
     private CitiesService citiesService;
 
-    @GetMapping("/cities")
+    @GetMapping("/all-cities")
     @Operation(summary = "Leiab süsteemist (city tabelist) kõik linnad",
             description = "Tagastab info koos cityId ja cityName'ga")
 
