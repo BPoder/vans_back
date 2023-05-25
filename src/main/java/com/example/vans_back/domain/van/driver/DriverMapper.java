@@ -1,5 +1,6 @@
 package com.example.vans_back.domain.van.driver;
 
+import com.example.vans_back.business.driver.dto.DriverDto;
 import com.example.vans_back.business.driver.dto.DriverRequest;
 import com.example.vans_back.business.driver.dto.DriverAllInfo;
 import com.example.vans_back.business.van.dto.VanBasicInfo;
@@ -27,7 +28,6 @@ public interface DriverMapper {
     List<DriverAllInfo> toDriverAllInfos(List<Driver> drivers);
 
 
-
     @Mapping(source = "driverName", target = "name")
     @Mapping(source = "driversLicense", target = "license")
     @Mapping(source = "driversPhoneNumber", target = "phoneNumber")
@@ -35,5 +35,8 @@ public interface DriverMapper {
     @Mapping(ignore = true, target = "van")
     Driver toDriver(DriverRequest driverRequest);
 
-
+    @Mapping(source = "id", target = "driverId")
+    @Mapping(source = "name", target = "driverName")
+    DriverDto toDriverDto(Driver driver);
+    List<DriverDto> toDriverDtos(List<Driver> drivers);
 }

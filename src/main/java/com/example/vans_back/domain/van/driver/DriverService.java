@@ -1,5 +1,6 @@
 package com.example.vans_back.domain.van.driver;
 
+import com.example.vans_back.business.Status;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +36,11 @@ public class DriverService {
 
     public List<Driver> getDriversBy(Integer cityId, Integer driverId) {
         List<Driver> drivers = driverRepository.findDriversBy(cityId, driverId);
+        return drivers;
+    }
+
+    public List<Driver> findAllActiveDrivers() {
+        List<Driver> drivers = driverRepository.findDriversBy(Status.ACTIVE.getLetter());
         return drivers;
     }
 }
