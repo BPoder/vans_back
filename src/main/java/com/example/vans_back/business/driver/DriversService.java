@@ -3,11 +3,16 @@ package com.example.vans_back.business.driver;
 import com.example.vans_back.business.driver.dto.DriverAllInfo;
 import com.example.vans_back.business.driver.dto.DriverDto;
 import com.example.vans_back.business.driver.dto.DriverRequest;
+import com.example.vans_back.domain.user.User;
+import com.example.vans_back.domain.user.UserMapper;
+import com.example.vans_back.domain.van.city.City;
+import com.example.vans_back.domain.van.city.CityService;
 import com.example.vans_back.domain.van.driver.Driver;
 import com.example.vans_back.domain.van.driver.DriverMapper;
 import com.example.vans_back.domain.van.driver.DriverService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,17 +24,37 @@ public class DriversService {
 
     @Resource
     private DriverMapper driverMapper;
+
+    @Resource
+    private CityService cityService;
+
+    @Resource
+    private UserMapper userMapper;
+
     public List<DriverAllInfo> getDrivers(Integer cityId, Integer driverId) {
         List<Driver> drivers = driverService.getDriversBy(cityId, driverId);
         List<DriverAllInfo> driverAllInfos = driverMapper.toDriverAllInfos(drivers);
         return driverAllInfos;
     }
 
+    @Transactional
     public void addDriver(DriverRequest driverRequest) {
+        Driver driver = driverMapper.toDriver(driverRequest);
 
-//         todo: peame looma Mapperi abil Driver objekti, salvestada seda veel ei saa
+        City city = cityService.findCityBy(driverRequest.getCityId());
+        driver.setCity(city);
 
-//         todo: peame cityId abil üles leidma City objekti ja peame driverile set-iga külge panema selle City,
+        User user = userMapper.toUser(driverRequest);
+
+        // todo: otsi roleid ja pane külge
+
+        driver.setUser(user);
+        driverService.addDriver(driver);
+
+
+//         peame looma Mapperi abil Driver objekti, salvestada seda veel ei saa
+
+//         peame cityId abil üles leidma City objekti ja peame driverile set-iga külge panema selle City
 
 //         todo: peame looma Mapperi abil User objekti,
 //          peame roleId abil üles leidma Role objekti ja panema selle User objektile set-iga külge,
