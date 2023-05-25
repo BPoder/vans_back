@@ -4,7 +4,7 @@ import com.example.vans_back.business.van.dto.VanBasicInfo;
 import com.example.vans_back.business.van.dto.VanRequest;
 import com.example.vans_back.domain.van.Van;
 import com.example.vans_back.business.van.dto.VanAllInfo;
-import com.example.vans_back.domain.van.VanDto;
+import com.example.vans_back.business.van.dto.VanDto;
 import com.example.vans_back.domain.van.VanMapper;
 import com.example.vans_back.domain.van.VanService;
 import com.example.vans_back.domain.van.city.City;

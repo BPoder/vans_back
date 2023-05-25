@@ -16,4 +16,6 @@ public interface DriverRepository extends JpaRepository<Driver, Integer> {
     @Query("select d from Driver d where (d.city.id = ?1 or ?1 = 0) and (d.id = ?2 or ?2 = 0)")
     List<Driver> findDriversBy(Integer cityId, Integer driverId);
 
+    @Query("select d from Driver d where d.status = ?1 order by d.city.name, d.name")
+    List<Driver> findDriversBy(String status);
 }
