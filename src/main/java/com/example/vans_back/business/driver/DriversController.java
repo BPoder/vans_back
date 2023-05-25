@@ -1,6 +1,7 @@
 package com.example.vans_back.business.driver;
 
 import com.example.vans_back.business.driver.dto.DriverAllInfo;
+import com.example.vans_back.business.driver.dto.DriverDto;
 import com.example.vans_back.business.driver.dto.DriverRequest;
 import com.example.vans_back.infrastructure.error.ApiError;
 import io.swagger.v3.oas.annotations.Operation;
@@ -19,6 +20,14 @@ public class DriversController {
 
     @Resource
     private DriversService driversService;
+
+    @GetMapping("/all-drivers")
+    @Operation(summary = "Leiab süsteemist (andmebaasist driver tabelist) kõik juhid.",
+            description = "Tagastab info koos driverId ja driverName'ga.")
+    public List<DriverDto> getAllDrivers() {
+        List<DriverDto> driverDtos = driversService.findAllDrivers();
+        return driverDtos;
+    }
 
     @GetMapping("/all-info")
     @Operation(summary = "Tagastab süsteemist (andmebaasist driver tabelist) juhtide info.",

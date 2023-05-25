@@ -1,12 +1,12 @@
 package com.example.vans_back.business.driver;
 
 import com.example.vans_back.business.driver.dto.DriverAllInfo;
+import com.example.vans_back.business.driver.dto.DriverDto;
 import com.example.vans_back.business.driver.dto.DriverRequest;
 import com.example.vans_back.domain.van.driver.Driver;
 import com.example.vans_back.domain.van.driver.DriverMapper;
 import com.example.vans_back.domain.van.driver.DriverService;
 import jakarta.annotation.Resource;
-import org.mapstruct.Mapping;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -41,5 +41,11 @@ public class DriversService {
 //        @Mapping(source = "userRoleId", target = "id")
 //        @Mapping(source = "username", target = "user.username")
 //        @Mapping(source = "password", target = "user.password")
+    }
+
+    public List<DriverDto> findAllDrivers() {
+        List<Driver> drivers = driverService.findAllActiveDrivers();
+        List<DriverDto> driverDtos = driverMapper.toDriverDtos(drivers);
+        return driverDtos;
     }
 }
