@@ -12,9 +12,8 @@ public class VanService {
     @Resource
     private VanRepository vanRepository;
 
-    public List<Van> getVansBy(Integer cityId, Integer vanId) {
-        List<Van> vans = vanRepository.findVansBy(cityId, vanId);
-        return vans;
+    public List<Van> getActiveVansBy(Integer cityId, Integer vanId) {
+        return vanRepository.findVansBy(cityId, vanId, Status.ACTIVE.getLetter());
     }
 
     public void addVan(Van van) {

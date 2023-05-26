@@ -52,7 +52,7 @@ public class VansService {
     }
 
     public List<VanAllInfo> getVans(Integer cityId, Integer vanId) {
-        List<Van> allVans = vanService.getVansBy(cityId, vanId);
+        List<Van> allVans = vanService.getActiveVansBy(cityId, vanId);
         List<VanAllInfo> vans = vanMapper.toVanAllInfos(allVans);
         return vans;
     }

@@ -29,6 +29,14 @@ public class VansController {
         List<VanDto> vanDtos = vansService.getAllVans();
         return vanDtos;
     }
+    @GetMapping("/all-city-vans")
+    @Operation(summary = "Leiab süsteemist (vans tabelist) kõik vanid",
+            description = "Tagastab info koos vanId, model ja plateNumber'ga")
+    public List<VanDto> getVans(@RequestParam Integer cityId) {
+        // TODO: Implementeeri controller
+        List<VanDto> vanDtos = vansService.getAllVans();
+        return vanDtos;
+    }
 
     @GetMapping("/basic-info")
     @Operation(summary = "Tagastab driverId kaudu kaubiku reg nr ja kindlustuse info.")
@@ -41,8 +49,7 @@ public class VansController {
     @Operation(summary = "Tagastab süsteemist (andmebaasist van tabelist) kaubikute info.",
             description = "Kui cityId ja vanId on 0-id, siis tagastab kõik kaubikud.")
     public List<VanAllInfo> getVans(@RequestParam Integer cityId, @RequestParam Integer vanId) {
-        List<VanAllInfo> allVans = vansService.getVans(cityId, vanId);
-        return allVans;
+        return vansService.getVans(cityId, vanId);
     }
 
     @PostMapping
