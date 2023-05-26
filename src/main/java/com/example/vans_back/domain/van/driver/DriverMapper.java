@@ -22,7 +22,7 @@ public interface DriverMapper {
     @Mapping(source = "license", target = "driversLicense")
     @Mapping(source = "user.username", target = "username")
     @Mapping(source = "user.password", target = "userPassword")
-    @Mapping(source = "van.city.name", target = "cityName")
+    @Mapping(source = "city.name", target = "cityName")
     DriverAllInfo toDriverAllInfo(Driver driver);
 
     List<DriverAllInfo> toDriverAllInfos(List<Driver> drivers);
