@@ -3,11 +3,19 @@ package com.example.vans_back.business.driver;
 import com.example.vans_back.business.driver.dto.DriverAllInfo;
 import com.example.vans_back.business.driver.dto.DriverDto;
 import com.example.vans_back.business.driver.dto.DriverRequest;
+import com.example.vans_back.domain.user.User;
+import com.example.vans_back.domain.user.UserMapper;
+import com.example.vans_back.domain.user.UserService;
+import com.example.vans_back.domain.user.role.Role;
+import com.example.vans_back.domain.user.role.RoleService;
+import com.example.vans_back.domain.van.city.City;
+import com.example.vans_back.domain.van.city.CityService;
 import com.example.vans_back.domain.van.driver.Driver;
 import com.example.vans_back.domain.van.driver.DriverMapper;
 import com.example.vans_back.domain.van.driver.DriverService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,35 +26,56 @@ public class DriversService {
     private DriverService driverService;
 
     @Resource
+    private CityService cityService;
+
+    @Resource
+    private UserService userService;
+
+    @Resource
+    private RoleService roleService;
+
+    @Resource
     private DriverMapper driverMapper;
+
+    @Resource
+    private UserMapper userMapper;
+
     public List<DriverAllInfo> getDrivers(Integer cityId, Integer driverId) {
         List<Driver> drivers = driverService.getDriversBy(cityId, driverId);
         List<DriverAllInfo> driverAllInfos = driverMapper.toDriverAllInfos(drivers);
         return driverAllInfos;
     }
 
+    @Transactional
     public void addDriver(DriverRequest driverRequest) {
-
-//         todo: peame looma Mapperi abil Driver objekti, salvestada seda veel ei saa
-
-//         todo: peame cityId abil üles leidma City objekti ja peame driverile set-iga külge panema selle City,
-
-//         todo: peame looma Mapperi abil User objekti,
-//          peame roleId abil üles leidma Role objekti ja panema selle User objektile set-iga külge,
-//          peame useri andmebaasi ära salvestana userRep save,
-
-//         todo: nüüd peame driverile set-iga külge panema selle useri,
-//          nüüd saame driveri salvestada andmebaasi,
-//
-//        @Mapping(source = "userRoleId", target = "id")
-//        @Mapping(source = "username", target = "user.username")
-//        @Mapping(source = "password", target = "user.password")
+        Driver driver = driverMapper.toDriver(driverRequest);
+        setCityToDriver(driverRequest.getCityId(), driver);
+        User user = createAndAddUser(driverRequest);
+        driver.setUser(user);
+        driverService.addDriver(driver);
     }
 
     public List<DriverDto> findAllDrivers() {
         List<Driver> drivers = driverService.findAllActiveDrivers();
         List<DriverDto> driverDtos = driverMapper.toDriverDtos(drivers);
         return driverDtos;
-
     }
+
+    private void setCityToDriver(Integer cityId, Driver driver) {
+        City city = cityService.getCityBy(cityId);
+        driver.setCity(city);
+    }
+
+    private User createAndAddUser(DriverRequest driverRequest) {
+        User user = userMapper.toUser(driverRequest);
+        setRoleToUser(driverRequest.getUserRoleId(), user);
+        userService.addUser(user);
+        return user;
+    }
+
+    private void setRoleToUser(Integer userRoleId, User user) {
+        Role role = roleService.getRoleBy(userRoleId);
+        user.setRole(role);
+    }
+
 }

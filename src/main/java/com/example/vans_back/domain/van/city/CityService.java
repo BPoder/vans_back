@@ -12,7 +12,7 @@ public class CityService {
     @Resource
     private CityRepository cityRepository;
 
-    public City findCityBy(Integer cityId) {
+    public City getCityBy(Integer cityId) {
         Optional<City> cityOptional = cityRepository.findById(cityId);
         City city = cityOptional.get();
         return city;

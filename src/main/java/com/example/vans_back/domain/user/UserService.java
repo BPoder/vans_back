@@ -18,4 +18,9 @@ public class UserService {
         User user = userOptional.get();
         return user;
     }
+
+
+    public void addUser(User user) {
+        userRepository.save(user);
+    }
 }

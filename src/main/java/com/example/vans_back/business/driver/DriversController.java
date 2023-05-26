@@ -22,8 +22,8 @@ public class DriversController {
     private DriversService driversService;
 
     @GetMapping("/all-drivers")
-    @Operation(summary = "Leiab süsteemist (driver tabelist) kõik juhid",
-            description = "Tagastab info koos driverId, ja driverName'ga")
+    @Operation(summary = "Leiab süsteemist (andmebaasist driver tabelist) kõik juhid.",
+            description = "Tagastab info koos driverId ja driverName'ga.")
     public List<DriverDto> getAllDrivers() {
         List<DriverDto> driverDtos = driversService.findAllDrivers();
         return driverDtos;

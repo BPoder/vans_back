@@ -11,14 +11,16 @@ import java.util.List;
 
 @Service
 public class CitiesService {
+
     @Resource
     private CityService cityService;
+
     @Resource
     private CityMapper cityMapper;
+
     public List<CityDto> getCities() {
         List<City> cities = cityService.getCities();
         List<CityDto> cityDtos = cityMapper.toCityDtos(cities);
         return cityDtos;
-
     }
 }

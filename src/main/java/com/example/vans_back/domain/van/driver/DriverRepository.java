@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface DriverRepository extends JpaRepository<Driver, Integer> {
+
     List<Driver> findByVan_Id(Integer id);
     @Query("select d from Driver d where d.user.id = ?1")
     Optional<Driver> findDriverByUserId(Integer userId);
@@ -18,4 +19,5 @@ public interface DriverRepository extends JpaRepository<Driver, Integer> {
 
     @Query("select d from Driver d where d.status = ?1 order by d.city.name, d.name")
     List<Driver> findDriversBy(String status);
+
 }

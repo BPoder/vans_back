@@ -23,8 +23,8 @@ public class VansController {
     private VansService vansService;
 
     @GetMapping("/all-vans")
-    @Operation(summary = "Leiab süsteemist (vans tabelist) kõik vanid",
-            description = "Tagastab info koos vanId, model ja plateNumber'ga")
+    @Operation(summary = "Leiab süsteemist (van tabelist) kõik van'id",
+            description = "Tagastab info koos vanId, model ja plateNumber'iga.")
     public List<VanDto> getAllVans() {
         List<VanDto> vanDtos = vansService.getAllVans();
         return vanDtos;

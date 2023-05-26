@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
- * DTO for {@link City}
+ * A DTO for the {@link City} entity
  */
 @Data
 @AllArgsConstructor

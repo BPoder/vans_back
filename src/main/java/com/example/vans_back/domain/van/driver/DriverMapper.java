@@ -27,7 +27,6 @@ public interface DriverMapper {
 
     List<DriverAllInfo> toDriverAllInfos(List<Driver> drivers);
 
-
     @Mapping(source = "driverName", target = "name")
     @Mapping(source = "driversLicense", target = "license")
     @Mapping(source = "driversPhoneNumber", target = "phoneNumber")
@@ -35,9 +34,9 @@ public interface DriverMapper {
     @Mapping(ignore = true, target = "van")
     Driver toDriver(DriverRequest driverRequest);
 
-    @Mapping(source = "name", target = "driverName")
     @Mapping(source = "id", target = "driverId")
-    DriverDto toDto(Driver driver);
+    @Mapping(source = "name", target = "driverName")
+    DriverDto toDriverDto(Driver driver);
 
-    List<DriverDto> toDriverDtos(List<Driver> drivers);
+    List <DriverDto> toDriverDtos(List <Driver> drivers);
 }

@@ -28,11 +28,10 @@ public interface VanMapper {
     @Mapping(source = "model", target = "model")
     Van toVan(VanRequest vanRequest);
 
-@Mapping(source = "id", target = "vanId")
-@Mapping(source = "model", target = "vanModel")
-@Mapping(source = "plateNumber", target = "vanPlateNumber")
-    VanDto toDto(Van van);
+    @Mapping(source = "id", target = "vanId")
+    @Mapping(source = "model", target = "vanModel")
+    @Mapping(source = "plateNumber", target = "vanPlateNumber")
+    VanDto toVanDto(Van van);
 
-List<VanDto> toVanDtos(List<Van> vans);
-
+    List<VanDto> toVanDtos(List<Van> vans);
 }
