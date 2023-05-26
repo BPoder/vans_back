@@ -41,7 +41,7 @@ public class DriversService {
     private UserMapper userMapper;
 
     public List<DriverAllInfo> getDrivers(Integer cityId, Integer driverId) {
-        List<Driver> drivers = driverService.getDriversBy(cityId, driverId);
+        List<Driver> drivers = driverService.getActiveDriversBy(cityId, driverId);
         List<DriverAllInfo> driverAllInfos = driverMapper.toDriverAllInfos(drivers);
         return driverAllInfos;
     }

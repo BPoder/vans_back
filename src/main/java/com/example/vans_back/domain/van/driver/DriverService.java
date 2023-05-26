@@ -34,8 +34,8 @@ public class DriverService {
         driverRepository.saveAll(drivers);
     }
 
-    public List<Driver> getDriversBy(Integer cityId, Integer driverId) {
-        List<Driver> drivers = driverRepository.findDriversBy(cityId, driverId);
+    public List<Driver> getActiveDriversBy(Integer cityId, Integer driverId) {
+        List<Driver> drivers = driverRepository.findDriversBy(cityId, driverId, Status.ACTIVE.getLetter());
         return drivers;
     }
 
