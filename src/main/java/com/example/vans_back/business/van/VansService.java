@@ -61,7 +61,7 @@ public class VansService {
     public void addVan(VanRequest vanRequest) {
         Van van = vanMapper.toVan(vanRequest);
 
-        City city = cityService.findCityBy(vanRequest.getCityId());
+        City city = cityService.getCityBy(vanRequest.getCityId());
         van.setCity(city);
 
         Insurance insurance;
