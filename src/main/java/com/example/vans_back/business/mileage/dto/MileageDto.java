@@ -1,5 +1,6 @@
-package com.example.vans_back.domain.van.mileage;
+package com.example.vans_back.business.mileage.dto;
 
+import com.example.vans_back.domain.van.mileage.Mileage;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;

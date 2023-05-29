@@ -9,10 +9,7 @@ import java.util.List;
 
 public interface MileageRepository extends JpaRepository<Mileage, Integer> {
 
-
-    @Query("select m from Mileage m where m.van.id = ?1 and m.date = ?2 order by m.date")
-    List<Mileage> findBy(Integer id, LocalDate date);
-
-
+    @Query("select m from Mileage m where m.van.id = ?1 and m.date between ?2 and ?3")
+    List<Mileage> findMileagesBy(Integer vanId, LocalDate startDate, LocalDate endDate);
 
 }
