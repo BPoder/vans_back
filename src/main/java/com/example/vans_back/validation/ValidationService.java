@@ -13,4 +13,9 @@ public class ValidationService {
             throw new BusinessException(INCORRECT_CREDENTIALS.getMessage(), INCORRECT_CREDENTIALS.getErrorCode());
         }
     }
+    public static void validateDateIsAvailable(boolean dateExists) {
+        if (dateExists) {
+            throw  new BusinessException(Error.DATE_UNAVAILABLE.getMessage(), Error.DATE_UNAVAILABLE.getErrorCode());
+        }
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.vans_back.domain.van.mileage;
 
+import com.example.vans_back.validation.ValidationService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +27,10 @@ public class MileageService {
 
     public void addMileage(Mileage mileage) {
         mileageRepository.save(mileage);
+    }
+
+    public void validateDateIsAvailableBy(LocalDate date) {
+        boolean dateExists = mileageRepository.dateExistsBy(date);
+        ValidationService.validateDateIsAvailable(dateExists);
     }
 }

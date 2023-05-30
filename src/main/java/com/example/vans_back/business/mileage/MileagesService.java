@@ -28,6 +28,7 @@ public class MileagesService {
 
     @Transactional
     public void addMileage(MileageRequest mileageRequest) {
+        mileageService.validateDateIsAvailableBy(mileageRequest.getDate());
         Mileage mileage = mileageMapper.toMileage(mileageRequest);
         mileageService.addMileage(mileage);
     }
