@@ -13,6 +13,7 @@ import java.io.Serializable;
 @Data
 public class VanBasicInfo implements Serializable {
 
+    private Integer vanId;
     private String vanPlateNumber;
     private String insuranceProvider;
     private String insurancePhoneNumber;

@@ -11,6 +11,7 @@ import java.util.List;
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
 public interface DriverMapper {
 
+    @Mapping(source = "van.id", target = "vanId")
     @Mapping(source = "van.plateNumber", target = "vanPlateNumber")
     @Mapping(source = "van.insurance.provider", target = "insuranceProvider")
     @Mapping(source = "van.insurance.phoneNumber", target = "insurancePhoneNumber")
