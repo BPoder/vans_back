@@ -15,5 +15,10 @@ public interface MileageRepository extends JpaRepository<Mileage, Integer> {
     @Query("select (count(m) > 0) from Mileage m where m.date = ?1")
     boolean dateExistsBy(LocalDate date);
 
+    @Query("select (count(m) > 0) from Mileage m where m.date = ?1 and m.van.id = ?2")
+    boolean dateForVanExistsBy(LocalDate date, Integer id);
+
+
+
 
 }

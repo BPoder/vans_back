@@ -29,8 +29,8 @@ public class MileageService {
         mileageRepository.save(mileage);
     }
 
-    public void validateDateIsAvailableBy(LocalDate date) {
-        boolean dateExists = mileageRepository.dateExistsBy(date);
+    public void validateDateIsAvailableBy(LocalDate date, Integer vanId) {
+        boolean dateExists = mileageRepository.dateForVanExistsBy(date, vanId);
         ValidationService.validateDateIsAvailable(dateExists);
     }
 }
