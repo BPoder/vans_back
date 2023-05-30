@@ -1,12 +1,15 @@
 package com.example.vans_back.business.mileage;
 
 import com.example.vans_back.business.mileage.dto.MileageDto;
+import com.example.vans_back.domain.van.mileage.MileageRequest;
+import com.example.vans_back.infrastructure.error.ApiError;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -24,4 +27,19 @@ public class MileagesController {
         List<MileageDto> mileages = mileagesService.findAllMileageInfo(vanId, monthNumber, yearNumber);
         return mileages;
     }
+
+    @PostMapping
+    @Operation(summary = "Lisab uue kuupäeva ja läbisõidu mileage tabelisse.",
+            description = "vanId on sisse logimisel front'is olemas")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "403", description = "Sellel kuupäeval on läbisõit juba süsteemis olemas", content = @Content(schema = @Schema(implementation = ApiError.class)))})
+    public void addMileage(@RequestBody MileageRequest mileageRequest) {
+        mileagesService.addMileage(mileageRequest);
+    }
+
+
+
+
+
 }

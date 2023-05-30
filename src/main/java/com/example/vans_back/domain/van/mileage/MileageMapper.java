@@ -14,4 +14,9 @@ public interface MileageMapper {
     MileageDto toMileageDto(Mileage mileage);
 
     List<MileageDto> toMileageDtos(List<Mileage> mileages);
+
+    @Mapping(source = "vanId", target = "van.id")
+    @Mapping(source = "km", target = "km")
+    @Mapping(source = "date", target = "date")
+    Mileage toMileage(MileageRequest mileageRequest);
 }

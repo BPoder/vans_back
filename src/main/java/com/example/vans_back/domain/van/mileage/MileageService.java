@@ -23,4 +23,8 @@ public class MileageService {
 
       return mileageRepository.findMileagesBy(vanId, startDate, endDate);
     }
+
+    public void addMileage(Mileage mileage) {
+        mileageRepository.save(mileage);
+    }
 }
