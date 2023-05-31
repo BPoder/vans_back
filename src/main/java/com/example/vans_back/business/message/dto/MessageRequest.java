@@ -1,5 +1,6 @@
-package com.example.vans_back.domain.user.message;
+package com.example.vans_back.business.message.dto;
 
+import com.example.vans_back.domain.user.message.Message;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;

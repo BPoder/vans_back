@@ -2,11 +2,11 @@ package com.example.vans_back.domain.user.message;
 
 import com.example.vans_back.business.Status;
 import com.example.vans_back.business.message.dto.MessageDto;
+import com.example.vans_back.business.message.dto.MessageRequest;
 import com.example.vans_back.util.TimeUtil;
 import org.mapstruct.*;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING, imports = {Instant.class, Status.class})

@@ -1,7 +1,7 @@
 package com.example.vans_back.business.message;
 
 import com.example.vans_back.business.message.dto.MessageDto;
-import com.example.vans_back.domain.user.message.MessageRequest;
+import com.example.vans_back.business.message.dto.MessageRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +32,8 @@ public class MessagesController {
 
     @PutMapping
     @Operation(summary = "Muudab teate staatuse READ-iks",
-            description = "otsib userId kaudu SENT staatusega teateid ning kirjutab staatuse üle READ-iks")
-    public void setMessageRead(@RequestParam Integer messageId)
-
+            description = "otsib messageId kaudu SENT staatusega teateid ning kirjutab staatuse üle READ-iks")
+    public void setMessageRead(@RequestParam Integer messageId) {
+        messagesService.setMessageRead(messageId);
+    }
 }

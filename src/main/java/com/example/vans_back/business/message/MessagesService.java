@@ -1,12 +1,11 @@
 package com.example.vans_back.business.message;
 
+import com.example.vans_back.business.Status;
 import com.example.vans_back.business.message.dto.MessageDto;
+import com.example.vans_back.business.message.dto.MessageRequest;
 import com.example.vans_back.domain.user.User;
 import com.example.vans_back.domain.user.UserService;
-import com.example.vans_back.domain.user.message.Message;
-import com.example.vans_back.domain.user.message.MessageMapper;
-import com.example.vans_back.domain.user.message.MessageRequest;
-import com.example.vans_back.domain.user.message.MessageService;
+import com.example.vans_back.domain.user.message.*;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +22,11 @@ public class MessagesService {
 
     @Resource
     private UserService userService;
+    private final MessageRepository messageRepository;
+
+    public MessagesService(MessageRepository messageRepository) {
+        this.messageRepository = messageRepository;
+    }
 
     public List<MessageDto> findMessages(Integer userId) {
         List<Message> messages = messageService.findAllMessagesBy(userId);
@@ -36,6 +40,12 @@ public class MessagesService {
         message.setSenderUser(sender);
         User receiver = userService.getUserBy(messageRequest.getReceiverUserId());
         message.setReceiverUser(receiver);
+        messageService.addMessage(message);
+    }
+
+    public void setMessageRead(Integer messageId) {
+        Message message = messageService.findMessageBy(messageId);
+        message.setStatus(Status.READ.getLetter());
         messageService.addMessage(message);
     }
 }
