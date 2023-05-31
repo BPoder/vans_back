@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.LocalDateTime;
 
 /**
  * A DTO for the {@link Message} entity
@@ -19,6 +20,6 @@ public class MessageDto implements Serializable {
     private String messageText;
     private String receiverUsername;
     private String senderUsername;
-    private Instant messageDateTime;
+    private String messageDateTime;
     private String messageStatus;
 }

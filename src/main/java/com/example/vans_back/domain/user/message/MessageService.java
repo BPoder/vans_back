@@ -12,4 +12,8 @@ public class MessageService {
     private MessageRepository messageRepository;
 
     public List<Message> findAllMessagesBy(Integer userId) { return messageRepository.findMessagesBy(userId, userId); }
+
+    public void addMessage(Message message) {
+        messageRepository.save(message);
+    }
 }

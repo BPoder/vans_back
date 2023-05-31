@@ -5,8 +5,7 @@ import lombok.Getter;
 @Getter
 public enum Status {
     SENT ("S"),
-    RECEIVED ("R"),
-    NEW ("N"),
+    READ ("R"),
     ACTIVE ("A"),
     DELETED("D");
 
