@@ -1,7 +1,7 @@
 package com.example.vans_back.business.mileage;
 
 import com.example.vans_back.business.mileage.dto.MileageDto;
-import com.example.vans_back.domain.van.mileage.MileageRequest;
+import com.example.vans_back.business.mileage.dto.MileageRequest;
 import com.example.vans_back.infrastructure.error.ApiError;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -11,7 +11,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController

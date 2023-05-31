@@ -1,6 +1,7 @@
 package com.example.vans_back.domain.van.mileage;
 
 import com.example.vans_back.business.mileage.dto.MileageDto;
+import com.example.vans_back.business.mileage.dto.MileageRequest;
 import org.mapstruct.*;
 
 import java.util.List;
