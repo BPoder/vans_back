@@ -30,7 +30,9 @@ public class MessagesController {
         messagesService.sendMessage(messageRequest);
     }
 
-
-
+    @PutMapping
+    @Operation(summary = "Muudab teate staatuse READ-iks",
+            description = "otsib userId kaudu SENT staatusega teateid ning kirjutab staatuse üle READ-iks")
+    public void setMessageRead(@RequestParam Integer messageId)
 
 }
