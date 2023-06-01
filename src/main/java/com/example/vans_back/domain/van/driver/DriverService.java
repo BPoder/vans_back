@@ -12,13 +12,13 @@ public class DriverService {
     @Resource
     private DriverRepository driverRepository;
 
-    public Integer getDriverIdBy(Integer userId) {
+    public Driver getDriverByUserId(Integer userId) {
         Driver driver = driverRepository.findDriverByUserId(userId).get();
-        return driver.getId();
+        return driver;
     }
 
-    public Driver getDriverBy(Integer driverId) {
-       return driverRepository.findDriverByDriverId(driverId).get();
+    public Driver getDriverByDriverId(Integer driverId) {
+        return driverRepository.findDriverByDriverId(driverId).get();
     }
 
     public void addDriver(Driver driver) {
@@ -43,4 +43,13 @@ public class DriverService {
         List<Driver> drivers = driverRepository.findDriversBy(Status.ACTIVE.getLetter());
         return drivers;
     }
+
+
+    public void deactivateDriver(Driver driver) {
+        driver.setVan(null);
+        driver.setStatus(Status.DELETED.getLetter());
+        driverRepository.save(driver);
+    }
 }
+
+

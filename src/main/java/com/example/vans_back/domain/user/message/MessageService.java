@@ -1,5 +1,6 @@
 package com.example.vans_back.domain.user.message;
 
+import com.example.vans_back.business.Status;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +20,6 @@ public class MessageService {
 
     public Message findMessageBy(Integer messageId) {
         return messageRepository.findById(messageId).get();
+
     }
 }

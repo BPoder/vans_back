@@ -46,7 +46,7 @@ public class VansService {
     private VanMapper vanMapper;
 
     public VanBasicInfo getUserVanInfo(Integer driverId) {
-        Driver driver = driverService.getDriverBy(driverId);
+        Driver driver = driverService.getDriverByDriverId(driverId);
         VanBasicInfo vanBasicInfo = driverMapper.toVanBasicInfo(driver);
         return vanBasicInfo;
     }
@@ -80,7 +80,7 @@ public class VansService {
 
         Integer driverId = vanRequest.getDriverId();
         if (driverId != 0) {
-            Driver driver = driverService.getDriverBy(driverId);
+            Driver driver = driverService.getDriverByDriverId(driverId);
             driver.setVan(van);
             driverService.addDriver(driver);
         }

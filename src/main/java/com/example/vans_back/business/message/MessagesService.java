@@ -22,11 +22,6 @@ public class MessagesService {
 
     @Resource
     private UserService userService;
-    private final MessageRepository messageRepository;
-
-    public MessagesService(MessageRepository messageRepository) {
-        this.messageRepository = messageRepository;
-    }
 
     public List<MessageDto> findMessages(Integer userId) {
         List<Message> messages = messageService.findAllMessagesBy(userId);

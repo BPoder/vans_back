@@ -78,4 +78,10 @@ public class DriversService {
         user.setRole(role);
     }
 
+    @Transactional
+    public void deleteDriver(Integer userId) {
+        Driver driver = driverService.getDriverByUserId(userId);
+        driverService.deactivateDriver(driver);
+        userService.deactivateUser(driver.getUser());
+    }
 }

@@ -27,4 +27,9 @@ public class UserService {
     public User getUserBy(Integer userId) {
         return userRepository.findById(userId).get();
     }
+
+    public void deactivateUser(User user) {
+        user.setStatus(Status.DELETED.getLetter());
+        userRepository.save(user);
+    }
 }

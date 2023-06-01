@@ -46,4 +46,12 @@ public class DriversController {
     public void addDriver(@RequestBody DriverRequest driverRequest) {
         driversService.addDriver(driverRequest);
     }
+
+    @DeleteMapping
+    @Operation(summary = "Kustutab tabelis driver rea (deaktiveerib - status Deleted).",
+            description = "User tabelis muudab userId staatuse Deleted.")
+    public void deleteDriver(@RequestParam Integer userId) {
+        driversService.deleteDriver(userId);
+    }
+
 }
