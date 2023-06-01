@@ -19,8 +19,7 @@ public class MessagesController {
     @Operation(summary = "Toob kõik teated andmebaasist",
             description = "tagastab info userId kaudu")
     public List<MessageDto> findMessages(@RequestParam Integer userId) {
-        List<MessageDto> messages = messagesService.findMessages(userId);
-        return messages;
+        return messagesService.findMessages(userId);
     }
 
     @PostMapping

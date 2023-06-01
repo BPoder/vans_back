@@ -15,7 +15,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class DriverAllInfo implements Serializable {
     private Integer driverId;
-
     private String username;
     private String userPassword;
     private String driverName;

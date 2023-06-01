@@ -1,7 +1,10 @@
 package com.example.vans_back.domain.van.city;
 
 import com.example.vans_back.business.city.dto.CityDto;
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.MappingConstants;
+import org.mapstruct.ReportingPolicy;
 
 import java.util.List;
 

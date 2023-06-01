@@ -52,5 +52,4 @@ public class Driver {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "van_id")
     private Van van;
-
 }

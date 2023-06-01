@@ -3,7 +3,10 @@ package com.example.vans_back.domain.user;
 import com.example.vans_back.business.driver.dto.DriverRequest;
 import com.example.vans_back.business.login.LoginResponse;
 import com.example.vans_back.business.user.dto.UserDto;
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.MappingConstants;
+import org.mapstruct.ReportingPolicy;
 
 import java.util.List;
 
@@ -20,6 +23,6 @@ public interface UserMapper {
     @Mapping(source = "id", target = "userId")
     @Mapping(source = "username", target = "username")
     UserDto toDto(User user);
-    List<UserDto> toUserDtos(List<User> users);
 
+    List<UserDto> toUserDtos(List<User> users);
 }

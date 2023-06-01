@@ -1,6 +1,5 @@
 package com.example.vans_back.domain.user.message;
 
-import com.example.vans_back.business.Status;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +11,9 @@ public class MessageService {
     @Resource
     private MessageRepository messageRepository;
 
-    public List<Message> findAllMessagesBy(Integer userId) { return messageRepository.findMessagesBy(userId, userId); }
+    public List<Message> findAllMessagesBy(Integer userId) {
+        return messageRepository.findMessagesBy(userId, userId);
+    }
 
     public void addMessage(Message message) {
         messageRepository.save(message);
@@ -20,6 +21,5 @@ public class MessageService {
 
     public Message findMessageBy(Integer messageId) {
         return messageRepository.findById(messageId).get();
-
     }
 }

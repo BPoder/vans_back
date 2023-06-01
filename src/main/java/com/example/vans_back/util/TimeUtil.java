@@ -10,8 +10,6 @@ public class TimeUtil {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy - HH:mm")
                 .withZone(ZoneId.systemDefault());
 
-        String formattedString = formatter.format(instant);
-
-        return formattedString;
+        return formatter.format(instant);
     }
 }

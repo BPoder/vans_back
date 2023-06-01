@@ -11,5 +11,4 @@ public interface VanRepository extends JpaRepository<Van, Integer> {
 
     @Query("select v from Van v where v.status = ?1 order by v.city.name")
     List<Van> findVansBy(String status);
-
 }

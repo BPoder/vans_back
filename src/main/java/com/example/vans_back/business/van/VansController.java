@@ -1,9 +1,9 @@
 package com.example.vans_back.business.van;
 
-import com.example.vans_back.business.van.dto.VanBasicInfo;
 import com.example.vans_back.business.van.dto.VanAllInfo;
-import com.example.vans_back.business.van.dto.VanRequest;
+import com.example.vans_back.business.van.dto.VanBasicInfo;
 import com.example.vans_back.business.van.dto.VanDto;
+import com.example.vans_back.business.van.dto.VanRequest;
 import com.example.vans_back.infrastructure.error.ApiError;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -26,23 +26,21 @@ public class VansController {
     @Operation(summary = "Leiab süsteemist (van tabelist) kõik van'id",
             description = "Tagastab info koos vanId, model ja plateNumber'iga.")
     public List<VanDto> getAllVans() {
-        List<VanDto> vanDtos = vansService.getAllVans();
-        return vanDtos;
+        return vansService.getAllVans();
     }
+
     @GetMapping("/all-city-vans")
     @Operation(summary = "Leiab süsteemist (vans tabelist) kõik vanid",
             description = "Tagastab info koos vanId, model ja plateNumber'ga")
     public List<VanDto> getVans(@RequestParam Integer cityId) {
         // TODO: Implementeeri controller
-        List<VanDto> vanDtos = vansService.getAllVans();
-        return vanDtos;
+        return vansService.getAllVans();
     }
 
     @GetMapping("/basic-info")
     @Operation(summary = "Tagastab driverId kaudu kaubiku reg nr ja kindlustuse info.")
     public VanBasicInfo getUserVanInfo(@RequestParam Integer driverId) {
-        VanBasicInfo vanBasicInfo = vansService.getUserVanInfo(driverId);
-        return vanBasicInfo;
+        return vansService.getUserVanInfo(driverId);
     }
 
     @GetMapping("/all-info")
@@ -64,7 +62,7 @@ public class VansController {
 
     @DeleteMapping
     @Operation(summary = "Kustutab tabelis van rea (deaktiveerib).",
-    description = "Juhi tabelis muudab vanId 'null'-iks.")
+            description = "Juhi tabelis muudab vanId 'null'-iks.")
     public void deleteVan(@RequestParam Integer vanId) {
         vansService.deleteVan(vanId);
     }

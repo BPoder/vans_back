@@ -5,7 +5,9 @@ import com.example.vans_back.business.message.dto.MessageDto;
 import com.example.vans_back.business.message.dto.MessageRequest;
 import com.example.vans_back.domain.user.User;
 import com.example.vans_back.domain.user.UserService;
-import com.example.vans_back.domain.user.message.*;
+import com.example.vans_back.domain.user.message.Message;
+import com.example.vans_back.domain.user.message.MessageMapper;
+import com.example.vans_back.domain.user.message.MessageService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +27,7 @@ public class MessagesService {
 
     public List<MessageDto> findMessages(Integer userId) {
         List<Message> messages = messageService.findAllMessagesBy(userId);
-        List<MessageDto> messageDtos = messageMapper.toMessageDtos(messages);
-        return messageDtos;
+        return messageMapper.toMessageDtos(messages);
     }
 
     public void sendMessage(MessageRequest messageRequest) {

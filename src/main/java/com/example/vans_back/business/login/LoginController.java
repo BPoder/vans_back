@@ -21,9 +21,8 @@ public class LoginController {
     @Operation(summary = "Sisse logimine. Tagastab userId ja roleName")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
-            @ApiResponse(responseCode = "403", description = "Vale kasutajanimi või salasõna", content = @Content(schema = @Schema(implementation = ApiError.class )))})
+            @ApiResponse(responseCode = "403", description = "Vale kasutajanimi või salasõna", content = @Content(schema = @Schema(implementation = ApiError.class)))})
     public LoginResponse login(@RequestParam String username, @RequestParam String password) {
-        LoginResponse loginResponse = loginService.login(username, password);
-        return loginResponse;
+        return loginService.login(username, password);
     }
 }

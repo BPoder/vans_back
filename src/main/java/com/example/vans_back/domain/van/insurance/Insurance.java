@@ -25,5 +25,4 @@ public class Insurance {
     @NotNull
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
-
 }

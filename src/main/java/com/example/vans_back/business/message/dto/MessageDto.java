@@ -6,8 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.time.Instant;
-import java.time.LocalDateTime;
 
 /**
  * A DTO for the {@link Message} entity

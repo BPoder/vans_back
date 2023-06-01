@@ -30,5 +30,4 @@ public class Mileage {
     @NotNull
     @Column(name = "km", nullable = false)
     private Integer km;
-
 }

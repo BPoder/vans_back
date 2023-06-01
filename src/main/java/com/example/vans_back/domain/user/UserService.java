@@ -16,10 +16,8 @@ public class UserService {
     public User findActiveUserBy(String username, String password) {
         Optional<User> userOptional = userRepository.findUserBy(username, password, Status.ACTIVE.getLetter());
         ValidationService.validateCorrectLoginCredentials(userOptional);
-        User user = userOptional.get();
-        return user;
+        return userOptional.get();
     }
-
 
     public void addUser(User user) {
         userRepository.save(user);
@@ -30,8 +28,7 @@ public class UserService {
     }
 
     public List<User> getUsers() {
-        List<User> users = userRepository.findAll();
-        return users;
+        return userRepository.findAll();
     }
 
     public void deactivateUser(User user) {

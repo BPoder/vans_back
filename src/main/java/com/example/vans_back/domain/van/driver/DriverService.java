@@ -13,8 +13,7 @@ public class DriverService {
     private DriverRepository driverRepository;
 
     public Driver getDriverByUserId(Integer userId) {
-        Driver driver = driverRepository.findDriverByUserId(userId).get();
-        return driver;
+        return driverRepository.findDriverByUserId(userId).get();
     }
 
     public Driver getDriverByDriverId(Integer driverId) {
@@ -26,8 +25,7 @@ public class DriverService {
     }
 
     public List<Driver> findDriversBy(Integer vanId) {
-        List<Driver> byVanId = driverRepository.findByVan_Id(vanId);
-        return byVanId;
+        return driverRepository.findByVan_Id(vanId);
     }
 
     public void saveAllDrivers(List<Driver> drivers) {
@@ -35,15 +33,12 @@ public class DriverService {
     }
 
     public List<Driver> getActiveDriversBy(Integer cityId, Integer driverId) {
-        List<Driver> drivers = driverRepository.findDriversBy(cityId, driverId, Status.ACTIVE.getLetter());
-        return drivers;
+        return driverRepository.findDriversBy(cityId, driverId, Status.ACTIVE.getLetter());
     }
 
     public List<Driver> findAllActiveDrivers() {
-        List<Driver> drivers = driverRepository.findDriversBy(Status.ACTIVE.getLetter());
-        return drivers;
+        return driverRepository.findDriversBy(Status.ACTIVE.getLetter());
     }
-
 
     public void deactivateDriver(Driver driver) {
         driver.setVan(null);

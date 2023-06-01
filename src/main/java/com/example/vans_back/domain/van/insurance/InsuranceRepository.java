@@ -9,5 +9,4 @@ public interface InsuranceRepository extends JpaRepository<Insurance, Integer> {
 
     @Query("select i from Insurance i where i.provider = ?1")
     Insurance findInsuranceBy(String providerName);
-
 }

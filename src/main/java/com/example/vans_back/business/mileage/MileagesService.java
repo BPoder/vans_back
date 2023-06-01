@@ -1,9 +1,9 @@
 package com.example.vans_back.business.mileage;
 
-import com.example.vans_back.domain.van.mileage.Mileage;
 import com.example.vans_back.business.mileage.dto.MileageDto;
-import com.example.vans_back.domain.van.mileage.MileageMapper;
 import com.example.vans_back.business.mileage.dto.MileageRequest;
+import com.example.vans_back.domain.van.mileage.Mileage;
+import com.example.vans_back.domain.van.mileage.MileageMapper;
 import com.example.vans_back.domain.van.mileage.MileageService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -21,8 +21,7 @@ public class MileagesService {
 
     public List<MileageDto> findAllMileageInfo(Integer vanId, Integer monthNumber, Integer yearNumber) {
         List<Mileage> mileages = mileageService.findMileageInfoByMonth(vanId, monthNumber, yearNumber);
-        List<MileageDto> mileageDtos = mileageMapper.toMileageDtos(mileages);
-        return mileageDtos;
+        return mileageMapper.toMileageDtos(mileages);
     }
 
     @Transactional

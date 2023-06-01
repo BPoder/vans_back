@@ -4,9 +4,9 @@ import lombok.Getter;
 
 @Getter
 public enum Status {
-    SENT ("S"),
-    READ ("R"),
-    ACTIVE ("A"),
+    SENT("S"),
+    READ("R"),
+    ACTIVE("A"),
     DELETED("D");
 
     private final String letter;

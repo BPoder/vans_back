@@ -17,6 +17,5 @@ public class VanRequest implements Serializable {
     private String plateNumber;
     private String insuranceProvider;
     private String insurancePhoneNumber;
-    private String cityName;
     private LocalDate nextInspection;
 }

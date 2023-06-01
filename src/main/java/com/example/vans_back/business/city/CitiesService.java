@@ -20,7 +20,6 @@ public class CitiesService {
 
     public List<CityDto> getCities() {
         List<City> cities = cityService.getCities();
-        List<CityDto> cityDtos = cityMapper.toCityDtos(cities);
-        return cityDtos;
+        return cityMapper.toCityDtos(cities);
     }
 }

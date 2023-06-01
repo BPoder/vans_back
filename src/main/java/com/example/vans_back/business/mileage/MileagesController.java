@@ -23,8 +23,7 @@ public class MileagesController {
     @GetMapping("/all-info")
     @Operation(summary = "Tagastab kilometraazi")
     public List<MileageDto> findAllMileageInfo(@RequestParam Integer vanId, @RequestParam Integer monthNumber, @RequestParam Integer yearNumber) {
-        List<MileageDto> mileages = mileagesService.findAllMileageInfo(vanId, monthNumber, yearNumber);
-        return mileages;
+        return mileagesService.findAllMileageInfo(vanId, monthNumber, yearNumber);
     }
 
     @PostMapping
@@ -36,9 +35,4 @@ public class MileagesController {
     public void addMileage(@RequestBody MileageRequest mileageRequest) {
         mileagesService.addMileage(mileageRequest);
     }
-
-
-
-
-
 }

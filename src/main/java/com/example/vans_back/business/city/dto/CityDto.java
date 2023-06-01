@@ -1,8 +1,6 @@
 package com.example.vans_back.business.city.dto;
 
 import com.example.vans_back.domain.van.city.City;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

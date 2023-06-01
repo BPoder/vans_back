@@ -1,8 +1,6 @@
 package com.example.vans_back.business.van.dto;
 
 import com.example.vans_back.domain.van.Van;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.io.Serializable;

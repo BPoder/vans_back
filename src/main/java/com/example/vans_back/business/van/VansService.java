@@ -1,10 +1,10 @@
 package com.example.vans_back.business.van;
 
+import com.example.vans_back.business.van.dto.VanAllInfo;
 import com.example.vans_back.business.van.dto.VanBasicInfo;
+import com.example.vans_back.business.van.dto.VanDto;
 import com.example.vans_back.business.van.dto.VanRequest;
 import com.example.vans_back.domain.van.Van;
-import com.example.vans_back.business.van.dto.VanAllInfo;
-import com.example.vans_back.business.van.dto.VanDto;
 import com.example.vans_back.domain.van.VanMapper;
 import com.example.vans_back.domain.van.VanService;
 import com.example.vans_back.domain.van.city.City;
@@ -47,14 +47,12 @@ public class VansService {
 
     public VanBasicInfo getUserVanInfo(Integer driverId) {
         Driver driver = driverService.getDriverByDriverId(driverId);
-        VanBasicInfo vanBasicInfo = driverMapper.toVanBasicInfo(driver);
-        return vanBasicInfo;
+        return driverMapper.toVanBasicInfo(driver);
     }
 
     public List<VanAllInfo> getVans(Integer cityId, Integer vanId) {
         List<Van> allVans = vanService.getActiveVansBy(cityId, vanId);
-        List<VanAllInfo> vans = vanMapper.toVanAllInfos(allVans);
-        return vans;
+        return vanMapper.toVanAllInfos(allVans);
     }
 
     @Transactional
@@ -94,15 +92,10 @@ public class VansService {
             driver.setVan(null);
         }
         driverService.saveAllDrivers(drivers);
-
-        // todo: driverService -> driverRepository findDriversBy(vanId) ('drivers')
-        //  update (for tsükkel) all 'drivers' van objects to null
-        //  driverService -> driverRepository saveAllDrivers('drivers')
     }
 
     public List<VanDto> getAllVans() {
         List<Van> vans = vanService.getAllVans();
-        List<VanDto> vanDtos = vanMapper.toVanDtos(vans);
-        return vanDtos;
+        return vanMapper.toVanDtos(vans);
     }
 }

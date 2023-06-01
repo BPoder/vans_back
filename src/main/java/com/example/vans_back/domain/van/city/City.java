@@ -20,5 +20,4 @@ public class City {
     @NotNull
     @Column(name = "name", nullable = false, length = 50)
     private String name;
-
 }

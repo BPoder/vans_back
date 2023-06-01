@@ -25,16 +25,14 @@ public class DriversController {
     @Operation(summary = "Leiab süsteemist (andmebaasist driver tabelist) kõik juhid.",
             description = "Tagastab info koos driverId ja driverName'ga.")
     public List<DriverDto> getAllDrivers() {
-        List<DriverDto> driverDtos = driversService.findAllDrivers();
-        return driverDtos;
+        return driversService.findAllDrivers();
     }
 
     @GetMapping("/all-info")
     @Operation(summary = "Tagastab süsteemist (andmebaasist driver tabelist) juhtide info.",
             description = "Kui cityId ja driverId on 0-id, siis tagastab kõik juhid.")
     public List<DriverAllInfo> getDrivers(@RequestParam Integer cityId, @RequestParam Integer driverId) {
-        List<DriverAllInfo> drivers = driversService.getDrivers(cityId, driverId);
-        return drivers;
+        return driversService.getDrivers(cityId, driverId);
     }
 
     @PostMapping
@@ -53,5 +51,4 @@ public class DriversController {
     public void deleteDriver(@RequestParam Integer userId) {
         driversService.deleteDriver(userId);
     }
-
 }

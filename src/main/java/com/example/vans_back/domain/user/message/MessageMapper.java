@@ -32,5 +32,4 @@ public interface MessageMapper {
     static String instantToString(Instant instant) {
         return TimeUtil.instantToString(instant);
     }
-
 }

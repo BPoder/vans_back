@@ -18,7 +18,6 @@ public class CitiesController {
     @Operation(summary = "Leiab süsteemist (city tabelist) kõik linnad",
             description = "Tagastab info koos cityId ja cityName'ga.")
     public List<CityDto> getCities() {
-        List<CityDto> cities = citiesService.getCities();
-        return cities;
+        return citiesService.getCities();
     }
 }

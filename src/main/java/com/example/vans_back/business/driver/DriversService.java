@@ -42,8 +42,7 @@ public class DriversService {
 
     public List<DriverAllInfo> getDrivers(Integer cityId, Integer driverId) {
         List<Driver> drivers = driverService.getActiveDriversBy(cityId, driverId);
-        List<DriverAllInfo> driverAllInfos = driverMapper.toDriverAllInfos(drivers);
-        return driverAllInfos;
+        return driverMapper.toDriverAllInfos(drivers);
     }
 
     @Transactional
@@ -55,10 +54,16 @@ public class DriversService {
         driverService.addDriver(driver);
     }
 
+    @Transactional
+    public void deleteDriver(Integer userId) {
+        Driver driver = driverService.getDriverByUserId(userId);
+        driverService.deactivateDriver(driver);
+        userService.deactivateUser(driver.getUser());
+    }
+
     public List<DriverDto> findAllDrivers() {
         List<Driver> drivers = driverService.findAllActiveDrivers();
-        List<DriverDto> driverDtos = driverMapper.toDriverDtos(drivers);
-        return driverDtos;
+        return driverMapper.toDriverDtos(drivers);
     }
 
     private void setCityToDriver(Integer cityId, Driver driver) {
@@ -76,12 +81,5 @@ public class DriversService {
     private void setRoleToUser(Integer userRoleId, User user) {
         Role role = roleService.getRoleBy(userRoleId);
         user.setRole(role);
-    }
-
-    @Transactional
-    public void deleteDriver(Integer userId) {
-        Driver driver = driverService.getDriverByUserId(userId);
-        driverService.deactivateDriver(driver);
-        userService.deactivateUser(driver.getUser());
     }
 }

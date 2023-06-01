@@ -14,12 +14,10 @@ public class CityService {
 
     public City getCityBy(Integer cityId) {
         Optional<City> cityOptional = cityRepository.findById(cityId);
-        City city = cityOptional.get();
-        return city;
+        return cityOptional.get();
     }
 
     public List<City> getCities() {
-        List<City> cities = cityRepository.findAll();
-        return cities;
+        return cityRepository.findAll();
     }
 }
