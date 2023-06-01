@@ -5,6 +5,7 @@ import com.example.vans_back.validation.ValidationService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -26,6 +27,11 @@ public class UserService {
 
     public User getUserBy(Integer userId) {
         return userRepository.findById(userId).get();
+    }
+
+    public List<User> getUsers() {
+        List<User> users = userRepository.findAll();
+        return users;
     }
 
     public void deactivateUser(User user) {
